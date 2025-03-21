@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAM © 2025</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+</head>
+<style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-image: url(/images/background/blue-clouds-day-fluffy-53594.jpeg);
+      min-height: 100%;
+    }
+  </style>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <!-- Current Time Stamp Section -->
+            <section id="timestamp">
+                <span id="current-time"></span>
+            </section>
+
+            <!-- Image Section replaced with text -->
+            <section id="image-section">
+                <span>"Welcome" © 2025 "Welcome" © 2025 "Welcome" © 2025 "Welcome" © 2025 "Welcome" © 2025 "Welcome" © 2025 "Welcome" © 2025 "Welcome" © 2025 "Welcome" © 2025 "Welcome" © 2025 "Welcome" © 2025 "Welcome" © 2025</span>
+            </section>
+
+            <!-- Tell us about yourself! Section -->
+            <section id="about">
+                <!-- Email button with blinking effect -->
+                <div class="email-button-container">
+                    <a href="mailto:hi@jam.wtf" class="email-button-text">
+                        Click here to email reference images if necessary
+                    </a>
+                </div>
+
+                <!-- Your form goes here -->
+                <form name="contact" method="POST" data-netlify="true" action="success.html" id="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First Name:</label>
+                            <input type="text" id="first-name" name="first-name" placeholder="Johnny" required>
+                            <span class="error-message" id="first-name-error">First name is required</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name:</label>
+                            <input type="text" id="last-name" name="last-name" placeholder="Appleseed" required>
+                            <span class="error-message" id="last-name-error">Last name is required</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" placeholder="hi@jam.wtf" required>
+                        <span class="error-message" id="email-error">Email address is required</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" placeholder="530-000-0000">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" id="city" name="city" placeholder="Redding" required>
+                        <span class="error-message" id="city-error">City is required</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State:</label>
+                        <select id="state" name="state" required>
+                            <option value="">Select State</option>
+                            <!-- States options here -->
+                            <option value="AL">Alabama (AL)</option>
+                            <option value="AK">Alaska (AK)</option>
+                            <option value="AZ">Arizona (AZ)</option>
+                            <option value="AR">Arkansas (AR)</option>
+                            <option value="CA">California (CA)</option>
+                            <option value="CO">Colorado (CO)</option>
+                            <option value="CT">Connecticut (CT)</option>
+                            <option value="DE">Delaware (DE)</option>
+                            <option value="FL">Florida (FL)</option>
+                            <option value="GA">Georgia (GA)</option>
+                            <option value="HI">Hawaii (HI)</option>
+                            <option value="ID">Idaho (ID)</option>
+                            <option value="IL">Illinois (IL)</option>
+                            <option value="IN">Indiana (IN)</option>
+                            <option value="IA">Iowa (IA)</option>
+                            <option value="KS">Kansas (KS)</option>
+                            <option value="KY">Kentucky (KY)</option>
+                            <option value="LA">Louisiana (LA)</option>
+                            <option value="ME">Maine (ME)</option>
+                            <option value="MD">Maryland (MD)</option>
+                            <option value="MA">Massachusetts (MA)</option>
+                            <option value="MI">Michigan (MI)</option>
+                            <option value="MN">Minnesota (MN)</option>
+                            <option value="MS">Mississippi (MS)</option>
+                            <option value="MO">Missouri (MO)</option>
+                            <option value="MT">Montana (MT)</option>
+                            <option value="NE">Nebraska (NE)</option>
+                            <option value="NV">Nevada (NV)</option>
+                            <option value="NH">New Hampshire (NH)</option>
+                            <option value="NJ">New Jersey (NJ)</option>
+                            <option value="NM">New Mexico (NM)</option>
+                            <option value="NY">New York (NY)</option>
+                            <option value="NC">North Carolina (NC)</option>
+                            <option value="ND">North Dakota (ND)</option>
+                            <option value="OH">Ohio (OH)</option>
+                            <option value="OK">Oklahoma (OK)</option>
+                            <option value="OR">Oregon (OR)</option>
+                            <option value="PA">Pennsylvania (PA)</option>
+                            <option value="RI">Rhode Island (RI)</option>
+                            <option value="SC">South Carolina (SC)</option>
+                            <option value="SD">South Dakota (SD)</option>
+                            <option value="TN">Tennessee (TN)</option>
+                            <option value="TX">Texas (TX)</option>
+                            <option value="UT">Utah (UT)</option>
+                            <option value="VT">Vermont (VT)</option>
+                            <option value="VA">Virginia (VA)</option>
+                            <option value="WA">Washington (WA)</option>
+                            <option value="WV">West Virginia (WV)</option>
+                            <option value="WI">Wisconsin (WI)</option>
+                            <option value="WY">Wyoming (WY)</option>
+                        </select>
+                        <span class="error-message" id="state-error">State is required</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="about-yourself">(Optional) Tell me about your idea...</label>
+                        <textarea id="about-yourself" name="about-yourself" placeholder="500 characters max" maxlength="500"></textarea>
+                    </div>
+                    <div class="form-group submit-button-container">
+                        <button type="submit">Submit</button>
+                    </div>
+                    <input type="hidden" name="form-name" value="contact">
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <footer style="display: none;">
+        <p>&copy; </p>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contact-form');
+    
+            form.addEventListener('submit', function(event) {
+                let valid = true;
+                
+                // Check all required fields
+                const requiredFields = ['first-name', 'last-name', 'email', 'city', 'state'];
+                requiredFields.forEach(id => {
+                    const input = document.getElementById(id);
+                    const errorMessage = document.getElementById(id + '-error');
+                    if (!input.value.trim()) {
+                        errorMessage.style.display = 'block';
+                        valid = false;
+                    } else {
+                        errorMessage.style.display = 'none';
+                    }
+                });
+    
+                if (!valid) {
+                    event.preventDefault();
+                    // Add a class to the form to trigger error styling
+                    form.classList.add('form-error');
+                } else {
+                    // Remove the class if form is valid
+                    form.classList.remove('form-error');
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>

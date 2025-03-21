@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAM © 2025</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+  <style>
+    /* Basic resets and background */
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-image: url(/images/background/blue-clouds-day-fluffy-53594.jpeg);
+      min-height: 100%;
+    }
+
+    /* Container that holds the balloon + button, 
+       placed in normal flow below the text */
+    #gif-center {
+      display: flex;                /* Use flex so we can center items horizontally */
+      flex-direction: column;       /* Stack balloon over button */
+      align-items: center;          /* Center horizontally */
+      margin-top: 10px;             /* 10px gap below your marquee/text */
+    }
+
+    /* Optional: tweak balloon image size if needed
+       #gif-center img {
+         width: 120px;
+         height: auto;
+       }
+    */
+
+    /* Separate blinking style for the "Click anywhere" button */
+    #entry-click-container {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(255, 0, 0);
+      color: #ffffff;
+      border: 2px solid rgb(0, 0, 0);
+      border-radius: 5px;
+      overflow: hidden;
+      padding: 3px 8px;                /* Thinner button */
+      width: auto;                     /* Auto to wrap text */
+      box-sizing: border-box;
+      animation: entryBlink 1s ease-in-out infinite; /* Flashing effect */
+      margin-top: 10px;                /* Space between balloon and button */
+    }
+
+    #entry-click-text {
+      display: block;
+      white-space: nowrap;
+      font-family: 'Akkurat Mono', monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      color: #ffffff;
+      text-decoration: none;
+      text-align: center;
+      margin: 0;
+    }
+
+    @keyframes entryBlink {
+      0%   { opacity: 1; }
+      50%  { opacity: 0.1; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <!-- Current Time Stamp Section -->
+      <section id="timestamp">
+        <span id="current-time"></span>
+      </section>
+
+      <!-- Marquee or banner text -->
+      <section id="image-section">
+        <span>
+          "We're glad you're here..." © 2025 
+          "We're glad you're here..." © 2025 
+          "We're glad you're here..." © 2025 
+          "We're glad you're here..." © 2025 
+          "We're glad you're here..." © 2025 
+          "We're glad you're here..." © 2025 
+          "We're glad you're here..." © 2025 
+          "We're glad you're here..." © 2025
+        </span>
+      </section>
+
+      <!-- Balloon GIF + blinking button below text -->
+      <div id="gif-center">
+        <img src="/images/balloon.gif" alt="Balloon Gift">
+        <div id="entry-click-container">
+          <p id="entry-click-text">Click anywhere to continue</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer style="display: none;">
+    <p>&copy;</p>
+  </footer>
+
+  <script src="js/scripts.js"></script>
+  <script>
+    // Entire page is clickable
+    document.body.addEventListener('click', function() {
+      window.location.href = 'main.html';
+    });
+  </script>
+</body>
+</html>

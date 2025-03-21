@@ -1,0 +1,312 @@
+@font-face {
+    font-family: 'Akkurat Mono';
+    src: url('/fonts/Akkurat-Mono.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Arial';
+    src: url('/fonts/ARIALBD 1.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, input, textarea, button, select {
+    font-family: 'Akkurat Mono';
+    color: black;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+html {
+    background-color: #3d73df;
+  }
+  
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.container {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 2.5%;
+    text-align: right;
+}
+
+#timestamp, #image-section, #about {
+    width: 100%;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    padding: 0px !important;
+}
+
+#timestamp {
+    font-family: 'Akkurat Mono';
+    font-size: 10px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+#image-section {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+    padding-bottom: 0;
+}
+
+#image-section span {
+    display: inline-block;
+    white-space: nowrap;
+    font-family: 'Akkurat Mono';
+    will-change: transform;
+    font-weight: bold;
+    color: black;
+    font-size: 25px; /* Minimum font size */
+    width: calc(100% + 50px);
+    animation: marquee 15s linear infinite;
+    letter-spacing: 0; /* Default letter spacing */
+}
+
+#image-section span::after {
+    content: ""Welcome" © 2025";
+}
+
+#gif-image {
+    content: center !important;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+@media screen and (max-width: 797px) {
+    #image-section span {
+        font-size: 25px; /* Ensure minimum font size on smaller screens */
+        width: calc(100% + 50px);
+        letter-spacing: 0; /* Reduced letter spacing for mobile screens */
+    }
+}
+
+#about {
+     padding: 5px;
+    border-radius: 5px;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.form-row .form-group {
+    flex: 1 1 calc(50% - 10px);
+    box-sizing: border-box;
+}
+
+.form-row .form-group:last-child {
+    margin-right: 0;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select[name="state"],
+.form-group textarea {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    margin: 0;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    border: 2px solid black;
+    border-radius: 5px;
+    font-family: 'Akkurat Mono';
+    text-transform: uppercase;
+    letter-spacing: 0;
+    position: relative;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#first-name,
+#last-name,
+#email,
+#phone,
+#city,
+#state {
+    background-color: #3d73df
+    ;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgb(255, 255, 255);
+    opacity: 1.0;
+    font-family: 'Akkurat Mono';
+}
+
+#about-yourself {
+    background-color: #3d73df
+    ;
+    height: auto;
+    min-height: 80px;
+    resize: vertical;
+}
+
+.form-group input[type="file"] {
+    display: none;
+}
+
+.form-group button {
+    cursor: pointer;
+    background-color: #ff0000
+    ;
+    color: #ffffff;
+    border: solid;
+    border-color: #000000;
+    border-radius: 3px;
+    padding: 2px 12px; /* Updated padding: 7px top/bottom, 12px left/right */
+    font-family: 'Akkurat Mono';
+    text-transform: uppercase;
+    letter-spacing: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.form-group button:hover {
+    opacity: 0.8;
+}
+
+.email-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 0, 0);
+    color: #ffffff;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 5px;
+    width: calc(100%);
+    box-sizing: border-box;
+    animation: blink 1s ease-in-out infinite;
+    margin-bottom: 20px;
+}
+
+.email-button-text {
+    display: block;
+    white-space: normal;
+    font-family: 'Akkurat Mono';
+    font-size: 10px !important;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    color: #ffffff
+    ;
+    text-decoration: none; /* Remove underline */
+    text-align: center; /* Center text */
+    width: 100%;
+}
+
+.submit-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Optional: add some space above the button */
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Hide red shadow and border by default */
+.form-group input:invalid, 
+.form-group select:invalid, 
+.form-group textarea:invalid {
+    border-color: black; /* Default border color */
+    box-shadow: none; /* Default shadow */
+}
+
+/* Error message styling */
+.error-message {
+    font-family: 'Akkurat Mono';
+    font-size: 14px; /* Adjust to match your design */
+    color: red;
+    display: none; /* Hidden by default */
+    margin-top: 5px;
+}
+
+/* Show red shadow and border after form submission */
+.form-error .form-group input:invalid, 
+.form-error .form-group select:invalid, 
+.form-error .form-group textarea:invalid {
+    border-color: red;
+    box-shadow: 0 0 5px red;
+}
+
+/* Show error messages after form submission */
+.form-error .error-message {
+    display: block;
+}
+
+/* Remove underline from all links in every state */
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: #ffffff; /* or any color you prefer */
+}

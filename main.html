@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JAM © 2025</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+  <style>
+    /* Basic resets and background */
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-image: url(/images/background/blue-clouds-day-fluffy-53594.jpeg);
+      min-height: 100%;
+      font-family: sans-serif;
+    }
+    
+    /* Image grid container */
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5px;             /* Space between grid items */
+      max-width: 797px;     /* Ensures grid doesn't exceed max width */
+      margin: 20px auto;    /* Center grid with vertical spacing */
+    }
+
+    /* Style for each image in the grid */
+    .image-grid img {
+      width: 100%;
+      display: block;
+      box-sizing: border-box;
+      padding: 5px;         /* Padding on all sides of the image */
+    }
+
+    /* Fixed container at bottom, with 10px padding on left/right */
+    #fixed-blinking-message-container {
+      position: fixed;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      padding: 0 10px;       /* <-- This ensures 10px space from screen edges */
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 590px;      /* Adjust if you want a different max width */
+      text-align: center;
+      z-index: 1000;
+    }
+
+    /* Replicate the form’s blinking red button container */
+    .email-button-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(255, 0, 0);
+      color: #ffffff;
+      border: 2px solid rgb(0, 0, 0);
+      border-radius: 5px;
+      overflow: hidden;
+      padding: 5px;
+      width: 100%;
+      box-sizing: border-box;
+      animation: blink 1s ease-in-out infinite;
+      margin-bottom: 0; /* No extra space at bottom in fixed container */
+    }
+
+    /* Same text style as your form's email-button-text */
+    .email-button-text {
+      display: block;
+      white-space: normal;
+      font-family: 'Akkurat Mono', monospace;
+      font-size: 10px !important; /* Force small text */
+      text-transform: uppercase;
+      letter-spacing: 0;
+      color: #ffffff;
+      text-decoration: none;
+      text-align: center;
+      width: 100%;
+    }
+
+    @keyframes blink {
+      0%   { opacity: 1; }
+      50%  { opacity: 0.1; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <!-- Current Time Stamp Section -->
+      <section id="timestamp">
+        <span id="current-time"></span>
+      </section>
+
+      <!-- Marquee or banner text -->
+      <section id="image-section">
+        <span>
+          "We're glad you're here..." © 2025 
+          "We're glad you're here..." © 2025 
+          "We're glad you're here..." © 2025 
+          "We're glad you're here..." © 2025 
+          "We're glad you're here..." © 2025 
+          "We're glad you're here..." © 2025 
+          "We're glad you're here..." © 2025 
+          "We're glad you're here..." © 2025
+        </span>
+      </section>
+
+      <!-- Image grid section -->
+      <section id="image-grid-section">
+        <div class="image-grid">
+          <img src="/images/civi.png" alt="Image 1">
+          <img src="/images/civi.png" alt="Image 2">
+          <img src="/images/civi.png" alt="Image 3">
+          <img src="/images/civi.png" alt="Image 4">
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Fixed blinking button at bottom, with 10px side padding -->
+  <div id="fixed-blinking-message-container">
+    <div class="email-button-container">
+      <a href="form.html" class="email-button-text">
+        Click here to inquire
+      </a>
+    </div>
+  </div>
+
+  <footer style="display: none;">
+    <p>&copy;</p>
+  </footer>
+
+  <script src="js/scripts.js"></script>
+  <script>
+    // Entire page is clickable (besides link) to go to main.html
+    document.body.addEventListener('click', function(event) {
+      // Prevent navigating away if the user clicks the link
+      if (event.target.closest('a')) {
+        return;
+      }
+      window.location.href = 'main.html';
+    });
+  </script>
+</body>
+</html>
