@@ -13,18 +13,18 @@
       padding: 0;
       background-image: url(/images/background/2.png);
       background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  min-height: 100%;
+      background-size: cover;
+      background-position: center;
+      min-height: 100%;
     }
     
     /* Image grid container */
     .image-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 5px;             /* Space between grid items */
-      max-width: 797px;     /* Ensures grid doesn't exceed max width */
-      margin: 20px auto;    /* Center grid with vertical spacing */
+      gap: 5px;
+      max-width: 797px;
+      margin: 20px auto;
     }
 
     /* Style for each image in the grid */
@@ -32,25 +32,25 @@
       width: 100%;
       display: block;
       box-sizing: border-box;
-      padding: 5px;         /* Padding on all sides of the image */
+      padding: 5px;
+      cursor: pointer;
     }
 
-    /* Fixed container at bottom, with 10px padding on left/right */
+    /* Fixed container at bottom */
     #fixed-blinking-message-container {
       position: fixed;
       bottom: 20px;
       left: 0;
       right: 0;
       margin: 0 auto;
-      padding: 0 10px;       /* <-- This ensures 10px space from screen edges */
+      padding: 0 10px;
       box-sizing: border-box;
       width: 100%;
-      max-width: 590px;      /* Adjust if you want a different max width */
+      max-width: 590px;
       text-align: center;
       z-index: 1000;
     }
 
-    /* Replicate the form’s blinking red button container */
     .email-button-container {
       display: flex;
       align-items: center;
@@ -60,19 +60,18 @@
       border: 2px solid rgb(0, 0, 0);
       border-radius: 5px;
       overflow: hidden;
-      padding: 5px;
+      padding: 5px;  /* Default padding: 5px on all sides */
       width: 100%;
       box-sizing: border-box;
       animation: blink 1s ease-in-out infinite;
-      margin-bottom: 0; /* No extra space at bottom in fixed container */
+      margin-bottom: 0;
     }
 
-    /* Same text style as your form's email-button-text */
     .email-button-text {
       display: block;
       white-space: normal;
       font-family: 'Akkurat Mono', monospace;
-      font-size: 10px !important; /* Force small text */
+      font-size: 10px !important;
       text-transform: uppercase;
       letter-spacing: 0;
       color: #ffffff;
@@ -85,6 +84,30 @@
       0%   { opacity: 1; }
       50%  { opacity: 0.1; }
       100% { opacity: 1; }
+    }
+
+    /* Media query for screens less than 400px wide: increase vertical padding by 5px on top and bottom (total 10px extra height) */
+    @media (max-width: 400px) {
+      .email-button-container {
+        padding: 10px 5px;
+      }
+    }
+
+    /* Fullscreen container for enlarged image (simple, no background color or glow) */
+    .fullscreen-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: none; /* hidden by default */
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+    }
+    .fullscreen-container img {
+      max-width: 90%;
+      max-height: 90%;
     }
   </style>
 </head>
@@ -128,7 +151,7 @@
     </div>
   </div>
 
-  <!-- Fixed blinking button at bottom, with 10px side padding -->
+  <!-- Fixed blinking button at bottom -->
   <div id="fixed-blinking-message-container">
     <div class="email-button-container">
       <a href="form.html" class="email-button-text">
@@ -137,10 +160,39 @@
     </div>
   </div>
 
+  <!-- Simple fullscreen container for enlarged image -->
+  <div id="fullscreen" class="fullscreen-container"></div>
+
   <footer style="display: none;">
     <p>&copy;</p>
   </footer>
 
+  <!-- Include the timestamp updater script -->
   <script src="js/scripts.js"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const images = document.querySelectorAll('.image-grid img');
+      const fullscreen = document.getElementById('fullscreen');
+
+      images.forEach(img => {
+        img.addEventListener('click', function() {
+          // Create a clone of the image
+          const imgClone = img.cloneNode();
+          // Remove any existing content in the fullscreen container
+          fullscreen.innerHTML = '';
+          // Append the cloned image
+          fullscreen.appendChild(imgClone);
+          // Show the fullscreen container
+          fullscreen.style.display = 'flex';
+        });
+      });
+
+      // Close the fullscreen view when clicking anywhere in the container
+      fullscreen.addEventListener('click', function() {
+        fullscreen.style.display = 'none';
+      });
+    });
+  </script>
 </body>
 </html>

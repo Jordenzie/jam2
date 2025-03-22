@@ -13,17 +13,17 @@
       padding: 0;
       background-image: url(/images/background/2.png);
       background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  min-height: 100%;
+      background-size: cover;
+      background-position: center;
+      min-height: 100%;
     }
 
-    /* Container for the balloon image */
+    /* Center the GIF exactly in the middle of the viewport */
     #gif-center {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 10px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
 
     /* Fixed blinking button container */
@@ -80,14 +80,7 @@
     /* Responsive scaling for screens below 400px */
     @media (max-width: 400px) {
       .email-button-container {
-         /* Scale the padding proportionally */
-         padding: calc(5px * (100vw / 400));
-         /* Cap the overall button height to no more than 5px taller than the current size (~26px + 5px = 31px) */
-         max-height: 31px;
-      }
-      .email-button-text {
-         /* Scale the font size proportionally */
-         font-size: calc(10px * (100vw / 400)) !important;
+         padding: 10px 5px;
       }
     }
   </style>
@@ -112,7 +105,7 @@
         </span>
       </section>
 
-      <!-- Balloon GIF -->
+      <!-- Balloon GIF centered in the viewport -->
       <div id="gif-center">
         <img src="/images/balloon.gif" alt="Balloon Gif">
       </div>
