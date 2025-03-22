@@ -9,31 +9,42 @@
   <style>
     /* Basic resets and background */
     html, body {
-      margin: 0;
-      padding: 0;
-      background-image: url(/images/background/blue-clouds-day-fluffy-53594.jpeg);
-      min-height: 100%;
-    }
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  /* Remove any plain background color */
+  background: url('/images/background/blue-clouds-day-fluffy-53594.jpeg')
+              no-repeat center center fixed;
+  background-size: cover;
+}
 
-    /* Container that holds the balloon + button, 
-       placed in normal flow below the text */
+
+    /* Container for the balloon image */
     #gif-center {
-      display: flex;                /* Use flex so we can center items horizontally */
-      flex-direction: column;       /* Stack balloon over button */
-      align-items: center;          /* Center horizontally */
-      margin-top: 10px;             /* 10px gap below your marquee/text */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10px;
     }
 
-    /* Optional: tweak balloon image size if needed
-       #gif-center img {
-         width: 120px;
-         height: auto;
-       }
-    */
+    /* Fixed blinking button container */
+    #fixed-blinking-message-container {
+      position: fixed;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      padding: 0 10px;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 590px;
+      text-align: center;
+      z-index: 1000;
+    }
 
-    /* Separate blinking style for the "Click anywhere" button */
-    #entry-click-container {
-      display: inline-flex;
+    /* Blinking button style */
+    .email-button-container {
+      display: flex;
       align-items: center;
       justify-content: center;
       background-color: rgb(255, 0, 0);
@@ -41,30 +52,44 @@
       border: 2px solid rgb(0, 0, 0);
       border-radius: 5px;
       overflow: hidden;
-      padding: 3px 8px;                /* Thinner button */
-      width: auto;                     /* Auto to wrap text */
+      padding: 5px;
+      width: 100%;
       box-sizing: border-box;
-      animation: entryBlink 1s ease-in-out infinite; /* Flashing effect */
-      margin-top: 10px;                /* Space between balloon and button */
+      animation: blink 1s ease-in-out infinite;
+      margin-bottom: 0;
     }
 
-    #entry-click-text {
+    .email-button-text {
       display: block;
-      white-space: nowrap;
+      white-space: normal;
       font-family: 'Akkurat Mono', monospace;
-      font-size: 10px;
+      font-size: 10px !important;
       text-transform: uppercase;
       letter-spacing: 0;
       color: #ffffff;
       text-decoration: none;
       text-align: center;
-      margin: 0;
+      width: 100%;
     }
 
-    @keyframes entryBlink {
+    @keyframes blink {
       0%   { opacity: 1; }
       50%  { opacity: 0.1; }
       100% { opacity: 1; }
+    }
+
+    /* Responsive scaling for screens below 400px */
+    @media (max-width: 400px) {
+      .email-button-container {
+         /* Scale the padding proportionally */
+         padding: calc(5px * (100vw / 400));
+         /* Cap the overall button height to no more than 5px taller than the current size (~26px + 5px = 31px) */
+         max-height: 31px;
+      }
+      .email-button-text {
+         /* Scale the font size proportionally */
+         font-size: calc(10px * (100vw / 400)) !important;
+      }
     }
   </style>
 </head>
@@ -79,24 +104,28 @@
       <!-- Marquee or banner text -->
       <section id="image-section">
         <span>
-          "We're glad you're here..." © 2025 
-          "We're glad you're here..." © 2025 
-          "We're glad you're here..." © 2025 
-          "We're glad you're here..." © 2025 
-          "We're glad you're here..." © 2025 
-          "We're glad you're here..." © 2025 
-          "We're glad you're here..." © 2025 
-          "We're glad you're here..." © 2025
+          "Welcome" © 2025 
+          "Welcome" © 2025 
+          "Welcome" © 2025 
+          "Welcome" © 2025 
+          "Welcome" © 2025 
+          "Welcome" © 2025 
         </span>
       </section>
 
-      <!-- Balloon GIF + blinking button below text -->
+      <!-- Balloon GIF -->
       <div id="gif-center">
-        <img src="/images/balloon.gif" alt="Balloon Gift">
-        <div id="entry-click-container">
-          <p id="entry-click-text">Click anywhere to continue</p>
-        </div>
+        <img src="/images/balloon.gif" alt="Balloon Gif">
       </div>
+    </div>
+  </div>
+
+  <!-- Fixed blinking button -->
+  <div id="fixed-blinking-message-container">
+    <div class="email-button-container">
+      <a href="main.html" class="email-button-text">
+        Click anywhere to continue
+      </a>
     </div>
   </div>
 
@@ -106,8 +135,9 @@
 
   <script src="js/scripts.js"></script>
   <script>
-    // Entire page is clickable
-    document.body.addEventListener('click', function() {
+    // Full-page click listener (ignores clicks on links) to navigate to main.html
+    document.body.addEventListener('click', function(event) {
+      if (event.target.closest('a')) return;
       window.location.href = 'main.html';
     });
   </script>

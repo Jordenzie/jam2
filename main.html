@@ -9,12 +9,14 @@
   <style>
     /* Basic resets and background */
     html, body {
-      margin: 0;
-      padding: 0;
-      background-image: url(/images/background/blue-clouds-day-fluffy-53594.jpeg);
-      min-height: 100%;
-      font-family: sans-serif;
-    }
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  /* Remove any plain background color */
+  background: url('/images/background/blue-clouds-day-fluffy-53594.jpeg')
+              no-repeat center center fixed;
+  background-size: cover;
+}
     
     /* Image grid container */
     .image-grid {
