@@ -18,11 +18,10 @@
       min-height: 100%;
     }
     
-    /* Image grid container */
+    /* Image grid container updated to use CSS columns */
     .image-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 5px;
+      column-count: 2;
+      column-gap: 5px;
       max-width: 797px;
       margin: 20px auto;
     }
@@ -31,8 +30,8 @@
     .image-grid img {
       width: 100%;
       display: block;
-      box-sizing: border-box;
-      padding: 5px;
+      margin-bottom: 10px; /* 3px vertical gap between images */
+      break-inside: avoid; /* Prevent images from splitting between columns */
       cursor: pointer;
     }
 
@@ -60,7 +59,7 @@
       border: 2px solid rgb(0, 0, 0);
       border-radius: 5px;
       overflow: hidden;
-      padding: 5px;  /* Default padding: 5px on all sides */
+      padding: 5px;
       width: 100%;
       box-sizing: border-box;
       animation: blink 1s ease-in-out infinite;
@@ -86,21 +85,21 @@
       100% { opacity: 1; }
     }
 
-    /* Media query for screens less than 400px wide: increase vertical padding by 5px on top and bottom (total 10px extra height) */
+    /* Media query for screens less than 500px wide */
     @media (max-width: 500px) {
       .email-button-container {
         padding: 10px 5px;
       }
     }
 
-    /* Fullscreen container for enlarged image (simple, no background color or glow) */
+    /* Fullscreen container for enlarged image */
     .fullscreen-container {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      display: none; /* hidden by default */
+      display: none;
       justify-content: center;
       align-items: center;
       z-index: 10000;
@@ -133,7 +132,7 @@
         </span>
       </section>
 
-      <!-- Image grid section -->
+      <!-- Image grid section using CSS columns -->
       <section id="image-grid-section">
         <div class="image-grid">
           <img src="/images/designs/125.gif" alt="Image 1">
@@ -142,6 +141,13 @@
           <img src="/images/designs/4.png" alt="Image 4">
           <img src="/images/designs/5.png" alt="Image 5">
           <img src="/images/designs/6.png" alt="Image 6">
+          <img src="/images/designs/7.png" alt="Image 7">
+          <img src="/images/designs/8.png" alt="Image 8">
+          <img src="/images/designs/9.jpg" alt="Image 9">
+          <img src="/images/designs/10.png" alt="Image 10">
+          <img src="/images/designs/11.png" alt="Image 11">
+          <img src="/images/designs/12.png" alt="Image 12">
+          <img src="/images/designs/13.png" alt="Image 13">
         </div>
       </section>
     </div>
@@ -156,7 +162,7 @@
     </div>
   </div>
 
-  <!-- Simple fullscreen container for enlarged image -->
+  <!-- Fullscreen container for enlarged image -->
   <div id="fullscreen" class="fullscreen-container"></div>
 
   <footer style="display: none;">
