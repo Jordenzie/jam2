@@ -28,8 +28,8 @@ body, html {
 
 html {
     background-color: #3d73df;
-  }
-  
+}
+
 .container {
     width: 100%;
     min-height: 100%;
@@ -111,7 +111,7 @@ html {
 }
 
 #about {
-     padding: 5px;
+    padding: 5px;
     border-radius: 5px;
 }
 
@@ -157,14 +157,16 @@ html {
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
+/* FIX #1: Add #code-redeem to match other input backgrounds */
+/* FIX #2: Ensure proper semicolon after #3d73df */
 #first-name,
 #last-name,
 #email,
 #phone,
 #city,
-#state {
-    background-color: #3d73df
-    ;
+#state,
+#code-redeem {
+    background-color: #3d73df;
 }
 
 .form-group input::placeholder,
@@ -175,8 +177,7 @@ html {
 }
 
 #about-yourself {
-    background-color: #3d73df
-    ;
+    background-color: #3d73df;
     height: auto;
     min-height: 80px;
     resize: vertical;
@@ -188,8 +189,7 @@ html {
 
 .form-group button {
     cursor: pointer;
-    background-color: #ff0000
-    ;
+    background-color: #ff0000;
     color: #ffffff;
     border: solid;
     border-color: #000000;
@@ -228,8 +228,7 @@ html {
     font-size: 10px !important;
     text-transform: uppercase;
     letter-spacing: 0;
-    color: #ffffff
-    ;
+    color: #ffffff;
     text-decoration: none; /* Remove underline */
     text-align: center; /* Center text */
     width: 100%;
@@ -289,6 +288,6 @@ a:link,
 a:visited,
 a:hover,
 a:active {
-  text-decoration: none;
-  color: #ffffff; /* or any color you prefer */
+    text-decoration: none;
+    color: #ffffff; /* or any color you prefer */
 }
