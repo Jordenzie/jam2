@@ -1,52 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Success Page</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
-    <style>
-        body {
-            background-image: url(/images/background/2.png); /* Same background color as your main index page */
-            font-family: 'Akkurat Mono', Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Success Page</title>
+  <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+  <!-- Optional: If you have shared styles, keep this -->
+  <link rel="stylesheet" href="css/styles.css">
 
-        html, body {
+  <style>
+    /* Match your main page's margin & padding resets */
+    html, body {
       margin: 0;
       padding: 0;
+      width: 100%;
+      height: 100%;
       background-image: url(/images/background/2.png);
       background-attachment: fixed;
       background-size: cover;
       background-position: center;
-      min-height: 100%;
+      font-family: 'Akkurat Mono', Arial, sans-serif;
     }
 
-        .success-text {
-            font-size: 14px;
-        }
+    /* Container matches the main page's width & margin (like the .image-grid)
+       Updated here specifically for this page: top margin is now 0px */
+    .container {
+      display: flex;
+      flex-direction: column;      /* Stack items vertically */
+      justify-content: flex-start; /* Start at the top; marquee & timestamp appear first */
+      align-items: center;         /* Center horizontally */
+      max-width: 640px;            /* Match the main page's .image-grid width */
+      margin: 0 auto;              /* Top margin removed for this page */
+      position: relative;          /* So we can position elements if needed */
+    }
 
-        .return-link {
-            font-size: 10px;
-            margin-top: 10px;
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
-        }
-    </style>
+    /* Top section for timestamp & marquee: no extra margin-top */
+    .top-section {
+      width: 100%;
+      /* margin-top: 20px; removed to be flush at the top */
+    }
+
+    /* Timestamp styling */
+    #timestamp {
+      font-size: 10px;
+      color: #000;
+      margin-bottom: 10px; /* Space between timestamp and marquee */
+      text-align: left;    /* Align left within the container’s width */
+    }
+
+    /* Marquee container */
+    #image-section {
+      overflow: hidden;  /* Hide overflow for scrolling text */
+      text-align: left;  /* Or center, if you prefer */
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    #image-section span {
+      display: inline-block;
+      white-space: nowrap;
+      font-weight: bold;
+      color: #000;
+      font-size: 25px;
+      animation: marquee 15s linear infinite;
+    }
+
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-200%); }
+    }
+
+    /* Middle section: flex to fill leftover space and center its content vertically */
+    .middle-section {
+      display: flex;
+      justify-content: center; /* Center horizontally */
+      align-items: center;     /* Center vertically */
+      width: 100%;
+      flex: 1;
+    }
+
+    /* Success container styling: centered with 10px spacing between items */
+    .success-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .success-container > * {
+      margin: 10px 0;
+    }
+    .success-text {
+      font-size: 14px;
+      color: #000;
+    }
+    .return-link {
+      font-size: 10px;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <div>
-        <p class="success-text">Success!</p>
-        <a class="return-link" href="main.html">Return to Main Page</a>
+  <div class="container">
+    <!-- Top Section: Timestamp & Marquee -->
+    <div class="top-section">
+      <section id="timestamp">
+        <span id="current-time"></span>
+      </section>
+      <section id="image-section">
+        <span>
+          "Thank you!" © 2025 "Thank you!" © 2025 
+          "Thank you!" © 2025 "Thank you!" © 2025 
+          "Thank you!" © 2025 "Thank you!" © 2025 
+          "Thank you!" © 2025 "Thank you!" © 2025
+        </span>
+      </section>
     </div>
+
+    <!-- Middle Section: Centered Success Message -->
+    <div class="middle-section">
+      <div class="success-container">
+        <p class="success-text">Success!</p>
+        <img src="/images/star.gif" alt="Success Gif">
+        <a class="return-link" href="main.html">Return to Main Page</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script for updating #current-time -->
+  <script src="js/scripts.js"></script>
 </body>
 </html>
